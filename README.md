@@ -4,6 +4,10 @@
 This is a [Vite] plugin for parsing Markdown files with Front Matter using the [gray-matter] npm module.
 Feel free to check out the [vite-plugin-gray-matter repository] on GitHub.
 
+**IMPORTANT NOTE:** This plugin **does not render** the Markdown content as HTML,
+it only obtains the data for use in [Vite].
+You can then use any Markdown parser to obtain the necessary HTML.
+
 ## Import Markdown
 
 This plugin imports Markdown and any associated Front Matter into Vite.
@@ -22,10 +26,6 @@ The "excerpt" is a convention allowing the inclusion of a separate Markdown
 section, before the main content of the file, which will be provided on its own
 in the returned object. AFAIK [gray-matter] is the only file reader which supports
 this convention.
-
-**IMPORTANT NOTE:** This plugin **does not render** the Markdown content as HTML,
-it only obtains the data for use in [Vite].
-You can then use any Markdown parser to obtain the necessary HTML.
 
 ## Installation
 
@@ -80,9 +80,9 @@ I'm happy to add usage instructions for those if anyone wants to PR some.
     ```
 
     (For working code examples, see
-    \[slug\].json
+    [\[slug\].json.ts](https://github.com/dnotes/vite-plugin-gray-matter/blob/main/src/routes/%5Bslug%5D.json.ts)
     and
-    Header.svelte
+    [Header.svelte](https://github.com/dnotes/vite-plugin-gray-matter/blob/main/src/lib/Header.svelte)
     in the [vite-plugin-gray-matter repository].)
 
 ## Troubleshooting
