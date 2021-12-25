@@ -7,7 +7,7 @@ const GMdefaults = {
 };
 function gm(options) {
     const opts = Object.assign({}, GMdefaults, options);
-    const exts = opts.exts.join('|').replace(/\./g, '');
+    const exts = opts.exts.join('|').replace(/^\./g, '');
     const fileRegex = new RegExp(`\\.(?:${exts})$`, 'i');
     return {
         name: 'gray-matter',
