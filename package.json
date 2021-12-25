@@ -1,6 +1,25 @@
 {
   "name": "vite-plugin-gray-matter",
   "version": "1.0.0",
+  "description": "This is a Vite plugin for importing (not rendering!) Markdown files with Front Matter with using the gray-matter npm module.",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnotes/vite-plugin-gray-matter.git"
+  },
+  "keywords": [
+    "vite-plugin",
+    "gray-matter",
+    "markdown",
+    "yaml",
+    "sveltekit"
+  ],
+  "author": "David Hunt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dnotes/vite-plugin-gray-matter/issues"
+  },
+  "homepage": "https://github.com/dnotes/vite-plugin-gray-matter#readme",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -11,11 +30,15 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
-    "@sveltejs/adapter-static": "^1.0.0-next.0",
+    "@sveltejs/adapter-static": "^1.0.0-next.22",
     "@sveltejs/kit": "next",
+    "@types/remarkable": "^2.0.3",
+    "autoprefixer": "^10.4.0",
+    "highlight.js": "^11.3.1",
+    "remarkable": "^2.0.1",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.6",
-    "svelte-preprocess": "^4.9.4",
+    "svelte-preprocess": "^4.10.1",
     "tslib": "^2.3.1",
     "typescript": "^4.4.3"
   },

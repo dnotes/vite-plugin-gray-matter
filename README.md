@@ -1,7 +1,8 @@
-## a Vite (and Rollup?) plugin for [gray-matter]
+# [Vite Plugin Gray Matter]
+## a Vite / Rollup plugin for [gray-matter]
 
-This is a [Vite] plugin for parsing Markdown files with Front Matter
-with using the [gray-matter] npm module.
+This is a [Vite] plugin for parsing Markdown files with Front Matter using the [gray-matter] npm module.
+Feel free to check out the [vite-plugin-gray-matter repository] on GitHub.
 
 ## Import Markdown
 
@@ -9,7 +10,7 @@ This plugin imports Markdown and any associated Front Matter into Vite.
 In your page templates or endpoints, this plugin will allow you to
 `import content from '/README.md'` and obtain the following structure:
 
-```ts
+``` ts
 {
   data:[key:string]:any // The parsed Yaml Front Matter from README.md
   content:string        // The Markdown-formatted text from README.md
@@ -38,15 +39,15 @@ I'm happy to add usage instructions for those if anyone wants to PR some.
 
 ### SvelteKit
 
-1. Import the module in `svelte.config.js`:
+1. **Import the module in `svelte.config.js`**
 
-    ```ts
-    import mdPlugin from 'vite-plugin-gray-matter`
+    ``` js
+    import mdPlugin from 'vite-plugin-gray-matter'
     ```
 
-2. Add the Vite configuration in `svelte.config.js`:
+2. **Add the Vite configuration in `svelte.config.js`**
 
-    ```ts
+    ``` ts
     const config = {
       preprocess: preprocess(),
       kit: {
@@ -72,34 +73,27 @@ I'm happy to add usage instructions for those if anyone wants to PR some.
         }
     ```
 
-3. Optionally, set vite.server.allow in your `svelte.config.js`,
-    so that you can import files from a directory outside of `/src`:
+3. **Go wild**
 
-    ```ts
-    const config = {
-      preprocess: preprocess(),
-      kit: {
-        adapter: adapter(),
-        vite: {
-          server: {
-            fs: {
-              allow: ['..'] // allow serving files one level below the project root
-            }
-          },
+    ``` ts
+    const posts = import.meta.glob('/content/*.md')
     ```
 
-4. Go wild in your `page.svelte` or `endpoint.js` files!
+    (For working code examples, see
+    \[slug\].json
+    and
+    Header.svelte
+    in the [vite-plugin-gray-matter repository].)
 
-    ```ts
-    import content from '/README.md'
-    ```
+## Troubleshooting
 
-    ```ts
-    const content = import.meta.glob('/posts/*.md')
-    ```
+The following problems are addressed in the FAQ:
+
+* Vite cannot import a file outside of the project directory
 
 
-
-[gray-matter]: https//npmjs.com/package/gray-matter
-[Vite]: https://vitejs.dev
-[rollup.js]: https://rollupjs.org
+[Vite Plugin Gray Matter]: //vite-plugin-gray-matter.dnotes.net
+[vite-plugin-gray-matter repository]: //github.com/dnotes/vite-plugin-gray-matter
+[gray-matter]: //npmjs.com/package/gray-matter
+[Vite]: //vitejs.dev
+[rollup.js]: //rollupjs.org
