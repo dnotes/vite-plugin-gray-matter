@@ -1,6 +1,14 @@
 import matter from 'gray-matter'
 
-const GMdefaults = {
+export type ViteGrayMatterOptions = {
+  exts?:string[],
+  excerpt?:boolean,
+  excerpt_separator?:string,
+  delimiters?:string,
+  render?:(markdown:string)=>string|void
+}
+
+const GMdefaults:ViteGrayMatterOptions = {
   exts: ['.md'],
   excerpt: false,
   excerpt_separator: '---',
@@ -8,8 +16,8 @@ const GMdefaults = {
   render: () => {}
 }
 
-function gm(options) {
-  const opts = Object.assign({}, GMdefaults, options)
+function gm(options:ViteGrayMatterOptions) {
+  const opts:ViteGrayMatterOptions = Object.assign({}, GMdefaults, options)
   const exts = opts.exts.join('|').replace(/^\./g,'')
   const fileRegex = new RegExp(`\\.(?:${exts})$`, 'i')
   return {
