@@ -5,6 +5,7 @@ const GMdefaults = {
   excerpt: false,
   excerpt_separator: '---',
   delimiters: '---',
+  render: () => {}
 }
 
 function gm(options) {
@@ -16,13 +17,18 @@ function gm(options) {
     transform(src,id) {
       if (fileRegex.test(id)) {
         const obj = matter(src,opts)
+        let res = [
+          `const data = ${JSON.stringify(obj.data)}`,
+          `const content = ${JSON.stringify(obj.content)}`,
+          `const html = ${JSON.stringify(opts.render(obj.content))}`,
+        ]
+        if (opts.excerpt) {
+          res.push(`const excerpt = ${JSON.stringify(obj?.excerpt)}`)
+          res.push(`const excerptHtml = ${JSON.stringify(opts.render(obj?.excerpt))}`,)
+        }
+        res.push(`export { data, content, html ${ opts.excerpt ? ', excerpt, excerptHtml' : ''} }`)
         return {
-          code: [
-            `const data = ${JSON.stringify(obj.data)}`,
-            `const content = ${JSON.stringify(obj.content)}`,
-            `const excerpt = ${JSON.stringify(obj?.excerpt)}`,
-            `export { data, content, excerpt }`
-          ].join('\n')
+          code: res.join('\n')
         }
       }
     }

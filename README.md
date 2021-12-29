@@ -18,7 +18,9 @@ In your page templates or endpoints, this plugin will allow you to
 {
   data:[key:string]:any // The parsed Yaml Front Matter from README.md
   content:string        // The Markdown-formatted text from README.md
+  html?:string          // The html returned by the render function, if provided
   excerpt?:string       // The "excerpt" Markdown from README.md (requires configuration)
+  excerptHtml?:string   // The html for the excerpt, if a render function was provided
 }
 ```
 
@@ -67,6 +69,9 @@ I'm happy to add usage instructions for those if anyone wants to PR some.
 
               // the text string which, when on a line by itself, represents the beginning and end of the front matter
               delimiters: '---',
+
+              // a function which takes a Markdown string and returns html
+              render: () => {},
 
             })
           ]
