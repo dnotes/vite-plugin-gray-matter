@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/dnotes/vite-plugin-gray-matter#readme",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
+    "dev": "tsc && svelte-kit dev",
+    "build": "tsc && svelte-kit build",
+    "package": "tsc",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
